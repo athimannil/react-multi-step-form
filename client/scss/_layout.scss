@@ -1,10 +1,15 @@
-#app {
-  // background-color: deepskyblue;
-  // flex: 1;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-}
 .main {
+  display: flex;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
 
+.container {
+  background: $white;
+  flex-basis: 100%;
+  max-width: $screen-md;
+  padding: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.25rem;
 }
