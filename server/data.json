@@ -1,0 +1,56 @@
+{
+  "questions": [
+    {
+      "questionID": 1,
+      "type": "radio",
+      "title": "Your gender ?",
+      "values": [
+        { "id": "1", "value": "Male" },
+        { "id": "2", "value": "Female" }
+      ]
+    },
+    {
+      "questionID": 2,
+      "type": "text",
+      "title": "Choose your age ?",
+      "values": []
+    },
+    {
+      "questionID": 3,
+      "type": "radio",
+			"title": "Do you look at a screen within one hour of going to sleep ?",
+      "values": [
+        { "id": "1", "value": "Yes" },
+        { "id": "2", "value": "No" }
+      ]
+		},
+    {
+      "questionID": 4,
+      "type": "checkbox",
+			"title": "What do you do most time on mobile",
+      "values": [
+        { "id": "1", "value": "Social media" },
+        { "id": "2", "value": "Play game" },
+        { "id": "3", "value": "Chat" },
+        { "id": "4", "value": "Surf on internet" },
+        { "id": "5", "value": "Call" }
+      ]
+		},
+    {
+      "questionID": 5,
+      "type": "dropdown",
+			"title": "On average, how many hours of sleep do you get every night ?",
+      "values": [
+        { "id": "1", "value": "4-6" },
+        { "id": "2", "value": "7-9" },
+        { "id": "3", "value": "10-11" }
+      ]
+		},
+    {
+      "questionID": 6,
+      "type": "comment",
+			"title": "Any additional comments or information we should know ?",
+      "values": []
+		}
+  ]
+}
