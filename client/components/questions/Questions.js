@@ -25,9 +25,9 @@ class Questions extends React.Component {
         {
           currentQuestion ?
             <form className="form">
-              <h2>{currentQuestion.title}</h2>
               <InputRadio
                 name="gender"
+                label={currentQuestion.title}
                 questionID={currentQuestion.questionID}
                 options={currentQuestion.values}
               />
