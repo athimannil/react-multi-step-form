@@ -96,9 +96,11 @@ console.log(newAnswer);
       case 'checkbox':
         return (
           <InputCheckbox
-            name="common-use"
+            name={currentQuestion.questionID}
             label={currentQuestion.title}
             options={currentQuestion.values}
+            onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
 
