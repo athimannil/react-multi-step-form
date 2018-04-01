@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateAnswer } from './../../actions/answerAction';
 
 import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
@@ -8,12 +10,32 @@ import TextAreaInput from '../common/TextAreaInput';
 import InputCheckbox from '../common/InputCheckbox';
 
 class Questions extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(event) {
+    if (Array.isArray(event.answerValues)) {
+      this.props.updateAnswer(event);
+    } else {
+      const question = event.target.name;
+      const result = event.target.value;
+      const newAnswer = {
+        'questionID': question,
+        'answerValues': result
+      };
+      this.props.updateAnswer(newAnswer);
+    }
+  }
+
   render() {
-    const { questions } = this.props;
+    const { questions, answers } = this.props;
 
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
+    const currentAnswer = answers.find( a => a.questionID.toString() === this.props.match.params.questionId );
     const currentQstIndex = questions.indexOf(currentQuestion);
-    console.log('currentQuestion ', currentQuestion);
 
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
@@ -33,6 +55,8 @@ class Questions extends React.Component {
             type="text"
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            value={currentAnswer}
+            onChange={this.onChange}
           />
         );
 
@@ -42,6 +66,8 @@ class Questions extends React.Component {
             type="number"
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            value={currentAnswer}
+            onChange={this.onChange}
             min="1"
             max="99"
           />
@@ -52,6 +78,8 @@ class Questions extends React.Component {
           <TextAreaInput
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            onChange={this.onChange}
+            value={currentAnswer}
           />
         );
 
@@ -60,17 +88,20 @@ class Questions extends React.Component {
           <InputRadio
             name={currentQuestion.questionID}
             label={currentQuestion.title}
-            questionID={currentQuestion.questionID}
             options={currentQuestion.values}
+            onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
 
       case 'checkbox':
         return (
           <InputCheckbox
-            name="common-use"
+            name={currentQuestion.questionID}
             label={currentQuestion.title}
             options={currentQuestion.values}
+            onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
 
@@ -81,6 +112,8 @@ class Questions extends React.Component {
             label={currentQuestion.title}
             options={currentQuestion.values}
             defaultOption="Choose avarage sleep"
+            onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
       }
@@ -108,4 +141,12 @@ class Questions extends React.Component {
   }
 }
 
-export default Questions
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateAnswer: (answer) => {
+      dispatch(updateAnswer(answer));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Questions);

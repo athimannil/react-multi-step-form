@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextInput = ({type, name, label, placeholder}) => {
+const TextInput = ({type, name, label, placeholder, onChange, value={} }) => {
   return (
     <div className="form-wrapper">
       <h2>{label}</h2>
@@ -9,6 +9,8 @@ const TextInput = ({type, name, label, placeholder}) => {
         className="form-wrapper-text"
         name={name}
         placeholder={placeholder}
+        value={value.answerValues || ''}
+        onChange={onChange}
       />
     </div>
   );

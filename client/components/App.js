@@ -15,14 +15,15 @@ class App extends React.Component {
   }
 
   render() {
-    const { questions } = this.props;
+    const { questions, answers } = this.props;
+    // console.log(questions, answers);
 
     return (
       <main className="main">
         <Switch>
           <Route exact path='/' render={() => ( <Redirect to='/questions/'/>)} />
           <Route path='/questions/:questionId*'
-            render={ (props) => <Questions questions={questions} {...props} />} />
+            render={ (props) => <Questions questions={questions} answers={answers} {...props} />} />
         </Switch>
       </main>
     );
@@ -31,7 +32,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    questions: state.questions
+    questions: state.questions,
+    answers: state.answers
   };
 };
 

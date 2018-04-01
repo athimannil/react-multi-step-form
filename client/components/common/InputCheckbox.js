@@ -1,27 +1,62 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const InputCheckbox = ({name, label, options,}) => {
-  return (
-    <div className="form-wrapper">
-      <h2>{label}</h2>
+class InputCheckbox extends React.Component {
+  constructor(props) {
+    super(props);
 
-      {options.map(option => {
-        return (
-          <div className="form-wrapper-label" key={option.id}>
-            <label>
-              <input
-                type="checkbox"
-                className="form-wrapper-check"
-                name={name}
-                value={option.id}
-              />{' '}
-              {option.value}
-            </label>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+    this.selected = this.answerValues.reduce(
+      (obj, curr) => ({ ...obj, [curr]: true }),
+      {}
+    );
 
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  get answerValues() {
+    const { answerValues = [] } = this.props.checked || {};
+    return answerValues;
+  }
+
+  handleChange(event, optionID) {
+    this.selected = this.selected || {};
+    if (event.target.checked) {
+      this.selected[optionID] = true;
+    } else {
+      delete this.selected[optionID];
+    }
+    this.props.onChange({
+      questionID: this.props.name,
+      answerValues: Object.keys(this.selected)
+    });
+  }
+
+  render() {
+    const { name, label, options } = this.props;
+    return (
+      <div className="form-wrapper">
+        <h2>{label}</h2>
+
+        {options.map(option => {
+          let tick = this.answerValues.find(answer => answer == option.id);
+          return (
+            <div className="form-wrapper-label" key={option.id}>
+              <label>
+                <input
+                  type="checkbox"
+                  className="form-wrapper-check"
+                  name={name}
+                  value={option.id}
+                  onChange={e => this.handleChange(e, option.id)}
+                  checked={option.id == tick}
+                />{' '}
+                {option.value}
+              </label>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+}
 export default InputCheckbox;
