@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import InputRadio from '../common/InputRadio';
+
 class Questions extends React.Component {
   render() {
     const { questions } = this.props;
 
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
     const currentQstIndex = questions.indexOf(currentQuestion);
-console.log('currentQuestion');
-console.log(currentQuestion);
+
+    console.log('currentQuestion ', currentQuestion);
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
       prevQstId = questions[currentQstIndex-1].questionID;
@@ -22,8 +24,13 @@ console.log(currentQuestion);
       <section className="container">
         {
           currentQuestion ?
-            <form className="form-wrapper">
+            <form className="form">
               <h2>{currentQuestion.title}</h2>
+              <InputRadio
+                name="gender"
+                questionID={currentQuestion.questionID}
+                options={currentQuestion.values}
+              />
             </form> :
             <div>
               <h1>Start your survey</h1>
