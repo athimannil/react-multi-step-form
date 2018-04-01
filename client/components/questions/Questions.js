@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
+import SelectInput from '../common/SelectInput';
 
 class Questions extends React.Component {
   render() {
@@ -41,6 +42,16 @@ class Questions extends React.Component {
             label={currentQuestion.title}
             questionID={currentQuestion.questionID}
             options={currentQuestion.values}
+          />
+        );
+
+      case 'dropdown':
+        return (
+          <SelectInput
+            name={currentQuestion.questionID}
+            label={currentQuestion.title}
+            options={currentQuestion.values}
+            defaultOption="Choose avarage sleep"
           />
         );
       }
