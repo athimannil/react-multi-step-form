@@ -4,9 +4,9 @@ const Progress = ({length}) => {
   console.clear();
   console.log(length)
   return (
-    <ul>
+    <ul className="multi-steps">
       { [...Array(length)].map((i, index) => {
-        return <li key={index}>{index}</li>;
+        return <li key={index}>{i}</li>;
       })}
     </ul>
   );

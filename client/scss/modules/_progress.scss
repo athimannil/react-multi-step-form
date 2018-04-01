@@ -1,0 +1,43 @@
+%common-law {
+  content: '';
+  display: inline-block;
+}
+
+.multi-steps {
+  display: table;
+  table-layout: fixed;
+  list-style: none;
+  width: 100%;
+
+  li {
+    counter-increment: stepNum;
+    display: table-cell;
+    text-align: center;
+    position: relative;
+
+    &::before {
+      @extend %common-law;
+      height: 2px;
+      width: 100%;
+      background-color: $primary-color;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &:last-child {
+      &::before {
+        content: none;
+      }
+    }
+
+    &::after {
+      @extend %common-law;
+      content: counter(stepNum);
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: $primary-color;
+      border-radius: 50%;
+    }
+  }
+}
