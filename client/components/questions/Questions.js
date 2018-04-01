@@ -7,7 +7,8 @@ class Questions extends React.Component {
 
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
     const currentQstIndex = questions.indexOf(currentQuestion);
-
+console.log('currentQuestion');
+console.log(currentQuestion);
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
       prevQstId = questions[currentQstIndex-1].questionID;
@@ -21,9 +22,9 @@ class Questions extends React.Component {
       <section className="container">
         {
           currentQuestion ?
-            <div>
-              <h1>Your question is here</h1>
-            </div> :
+            <form className="form-wrapper">
+              <h2>{currentQuestion.title}</h2>
+            </form> :
             <div>
               <h1>Start your survey</h1>
             </div>
