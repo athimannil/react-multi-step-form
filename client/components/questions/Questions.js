@@ -8,16 +8,20 @@ class Questions extends React.Component {
     console.log(this.props.match.params);
     console.log(this.props.match.params.questionId);
 
-    let questionId;
-    if (this.props.match.params != undefined) {
-      questionId = this.props.match.params.questionId;
+    const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
+    console.log(currentQuestion);
+    const currentQstIndex = questions.indexOf(currentQuestion);
+    console.log(currentQstIndex);
+    let nextQstId;
+    if(questions[currentQstIndex+1]){
+      nextQstId = questions[currentQstIndex+1].questionID;
     }
-    console.log('Question ID from param ', questionId);
+    console.log('nextQstId ', nextQstId);
 
     return (
       <section className="container">
         {
-          questionId ?
+          currentQuestion ?
             <div>
               <h1>Your question is here</h1>
             </div> :
@@ -28,7 +32,7 @@ class Questions extends React.Component {
 
         <div className="form-footer">
           <Link to='/' className="btn btn-secondary">Home</Link>
-          <Link to='/questions/1' className="btn btn-parimary">Start</Link>
+          <Link to='/questions/1' className="btn btn-parimary">Next</Link>
         </div>
       </section>
     );
