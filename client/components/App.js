@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { loadQuestions } from './../actions/questionAction';
 
 import Questions from './questions/Questions';
+import Summary from './summary/Summary';
 
 class App extends React.Component {
   constructor(props, context) {
@@ -24,6 +25,7 @@ class App extends React.Component {
           <Route exact path='/' render={() => ( <Redirect to='/questions/'/>)} />
           <Route path='/questions/:questionId*'
             render={ (props) => <Questions questions={questions} answers={answers} {...props} />} />
+          <Route path='/summary' component={Summary}/>
         </Switch>
       </main>
     );

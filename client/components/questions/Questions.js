@@ -32,7 +32,6 @@ class Questions extends React.Component {
 
   render() {
     const { questions, answers } = this.props;
-
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
     const currentAnswer = answers.find( a => a.questionID.toString() === this.props.match.params.questionId );
     const currentQstIndex = questions.indexOf(currentQuestion);
@@ -133,8 +132,15 @@ class Questions extends React.Component {
         }
 
         <div className="form-footer">
-          <Link to={ prevQstId ? `/questions/${prevQstId}` : '/questions/'} className="btn btn-secondary">Previous</Link>
-          <Link to={`/questions/${nextQstId}`} className="btn btn-parimary">Next</Link>
+          <Link
+            to={ prevQstId ? `/questions/${prevQstId}` : '/questions/'}
+            className="btn btn-secondary"
+          >Previous</Link>
+
+          <Link
+            to={nextQstId ? `/questions/${nextQstId}` : '/summary'}
+            className="btn btn-parimary"
+          >{nextQstId ? 'Next' : 'Summary'}</Link>
         </div>
       </section>
     );

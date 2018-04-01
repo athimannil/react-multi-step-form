@@ -24,10 +24,19 @@ h2 {
   font-size: 1.125rem;
 }
 
+p{
+  margin-top: 0;
+}
+
 a {
   text-decoration: none;
 }
 
 label {
   cursor: pointer;
+}
+
+ul{
+  padding-left: 0;
+  margin-top: 0;
 }
