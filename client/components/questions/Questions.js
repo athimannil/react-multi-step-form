@@ -11,6 +11,7 @@ class Questions extends React.Component {
     const currentQstIndex = questions.indexOf(currentQuestion);
 
     console.log('currentQuestion ', currentQuestion);
+
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
       prevQstId = questions[currentQstIndex-1].questionID;
@@ -26,7 +27,7 @@ class Questions extends React.Component {
       case 'radio':
         return (
           <InputRadio
-            name="gender"
+            name={currentQuestion.questionID}
             label={currentQuestion.title}
             questionID={currentQuestion.questionID}
             options={currentQuestion.values}
