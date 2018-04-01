@@ -8,6 +8,17 @@ import TextAreaInput from '../common/TextAreaInput';
 import InputCheckbox from '../common/InputCheckbox';
 
 class Questions extends React.Component {
+
+  onChange(event) {
+    const question = event.target.name;
+    const result = event.target.value;
+    const newAnswer = {
+      'questionID': question,
+      'answerValues': result
+    };
+    console.log(newAnswer);
+  }
+
   render() {
     const { questions } = this.props;
 
@@ -62,6 +73,7 @@ class Questions extends React.Component {
             label={currentQuestion.title}
             questionID={currentQuestion.questionID}
             options={currentQuestion.values}
+            onChange={this.onChange}
           />
         );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputRadio = ({name, label, options}) => {
+const InputRadio = ({name, label, options, onChange}) => {
   return (
     <div className="form-wrapper">
       <h2>{label}</h2>
@@ -13,6 +13,7 @@ const InputRadio = ({name, label, options}) => {
                 className="form-wrapper-radio"
                 name={name}
                 value={option.id}
+                onChange={onChange}
               /> {option.value}
             </label>
           </div>
