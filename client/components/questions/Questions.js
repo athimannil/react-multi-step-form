@@ -18,14 +18,18 @@ class Questions extends React.Component {
 
   onChange(event) {
     console.log(event);
-//     const question = event.target.name;
-//     const result = event.target.value;
-//     const newAnswer = {
-//       'questionID': question,
-//       'answerValues': result
-//     };
-// console.log(newAnswer);
-//     this.props.updateAnswer(newAnswer);
+    if (Array.isArray(event.answerValues)) {
+      this.props.updateAnswer(event);
+    } else {
+      const question = event.target.name;
+      const result = event.target.value;
+      const newAnswer = {
+        'questionID': question,
+        'answerValues': result
+      };
+      console.log(newAnswer);
+      this.props.updateAnswer(newAnswer);
+    }
   }
 
   render() {
