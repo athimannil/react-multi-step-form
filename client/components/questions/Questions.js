@@ -131,11 +131,14 @@ class Questions extends React.Component {
             </div>
         }
 
-        <div className="form-footer">
-          <Link
-            to={ prevQstId ? `/questions/${prevQstId}` : '/questions/'}
-            className="btn btn-secondary"
-          >Previous</Link>
+        <div className={`form-footer ${this.props.match.params.questionId ? '' : 'reverse-button'}`}>
+          {
+            this.props.match.params.questionId &&
+            <Link
+              to={ prevQstId ? `/questions/${prevQstId}` : '/questions/'}
+              className="btn btn-secondary"
+            >Previous</Link>
+          }
 
           <Link
             to={nextQstId ? `/questions/${nextQstId}` : '/summary'}
