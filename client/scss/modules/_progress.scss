@@ -1,6 +1,7 @@
 %common-law {
   content: '';
   display: inline-block;
+  background-color: $light-grey;
 }
 
 .multi-steps {
@@ -8,6 +9,7 @@
   table-layout: fixed;
   list-style: none;
   width: 100%;
+  margin-bottom: 1.5rem;
 
   li {
     counter-increment: stepNum;
@@ -17,27 +19,26 @@
 
     &::before {
       @extend %common-law;
+      content: counter(stepNum);
+      height: 2.5rem;
+      width: 2.5rem;
+      line-height: 2.5rem;
+      border-radius: 50%;
+    }
+
+    &::after {
+      @extend %common-law;
       height: 2px;
       width: 100%;
-      background-color: $primary-color;
       position: absolute;
       top: 0;
       bottom: 0;
       margin: auto;
     }
     &:last-child {
-      &::before {
+      &::after {
         content: none;
       }
-    }
-
-    &::after {
-      @extend %common-law;
-      content: counter(stepNum);
-      height: 2.5rem;
-      width: 2.5rem;
-      background-color: $primary-color;
-      border-radius: 50%;
     }
   }
 }
