@@ -9,7 +9,7 @@ const TextInput = ({type, name, label, placeholder, onChange, value={} }) => {
         className="form-wrapper-text"
         name={name}
         placeholder={placeholder}
-        value={value.answerValues}
+        value={value.answerValues || ''}
         onChange={onChange}
       />
     </div>
