@@ -44,7 +44,7 @@ class InputCheckbox extends React.Component {
               <label>
                 <input
                   type="checkbox"
-                  className="form-wrapper-check"
+                  className="form-wrapper-input form-wrapper-check"
                   name={name}
                   value={option.id}
                   onChange={e => this.handleChange(e, option.id)}

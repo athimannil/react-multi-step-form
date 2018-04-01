@@ -1,0 +1,81 @@
+%common-law {
+  content: '';
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%remain-steps {
+  font-size: 1rem;
+  color: $dark;
+
+  &::before {
+    content: counter(stepNum);
+    background-color: $light-grey;
+  }
+
+  &::after {
+    background-color: $light-grey;
+  }
+}
+
+.multi-steps {
+  display: table;
+  table-layout: fixed;
+  list-style: none;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+
+  li {
+    counter-increment: stepNum;
+    display: table-cell;
+    text-align: center;
+    color: $brand-color;
+    position: relative;
+    font: {
+      weight: bold;
+      size: 1.125rem;
+    }
+
+    &::before {
+      content: '\2713';
+      @extend %common-law;
+      @include circle(2.25rem);
+      background-color: $white;
+      border: 2px solid $brand-color;
+    }
+
+    &::after {
+      @extend %common-law;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: $brand-color;
+    }
+
+    &:last-child {
+
+      &::after {
+        content: none;
+      }
+    }
+
+
+    &.is-active {
+      @extend %remain-steps;
+
+       ~ li {
+         font-weight: 400;
+         @extend %remain-steps;
+
+         &::before {
+           border-color: $light-grey;
+         }
+       }
+    }
+  }
+}

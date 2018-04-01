@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateAnswer } from './../../actions/answerAction';
 
+import Progress from './../progress/Progress';
 import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
 import SelectInput from '../common/SelectInput';
@@ -120,6 +121,11 @@ class Questions extends React.Component {
 
     return (
       <section className="container">
+        <Progress
+          currentIndex={currentQstIndex}
+          length={questions.length}
+        />
+
         {
           currentQuestion ?
             <form className="form">

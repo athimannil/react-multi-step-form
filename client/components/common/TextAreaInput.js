@@ -6,7 +6,7 @@ const TextAreaInput = ({name, label, placeholder, onChange, value={}}) => {
       <h2>{label}</h2>
       <textarea
         name={name}
-        className="form-wrapper-textarea"
+        className="form-wrapper-input form-wrapper-textarea"
         rows="4"
         placeholder={placeholder}
         value={value.answerValues}
