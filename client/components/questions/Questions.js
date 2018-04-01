@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateAnswer } from './../../actions/answerAction';
 
 import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
@@ -8,6 +10,11 @@ import TextAreaInput from '../common/TextAreaInput';
 import InputCheckbox from '../common/InputCheckbox';
 
 class Questions extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onChange = this.onChange.bind(this);
+  }
 
   onChange(event) {
     const question = event.target.name;
@@ -16,7 +23,8 @@ class Questions extends React.Component {
       'questionID': question,
       'answerValues': result
     };
-    console.log(newAnswer);
+
+    this.props.updateAnswer(newAnswer);
   }
 
   render() {
@@ -120,4 +128,12 @@ class Questions extends React.Component {
   }
 }
 
-export default Questions
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateAnswer: (answer) => {
+      dispatch(updateAnswer(answer));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Questions);
