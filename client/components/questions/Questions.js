@@ -23,16 +23,18 @@ class Questions extends React.Component {
       'questionID': question,
       'answerValues': result
     };
-
+console.log(newAnswer);
     this.props.updateAnswer(newAnswer);
   }
 
   render() {
-    const { questions } = this.props;
+    const { questions, answers } = this.props;
 
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
+    const currentAnswer = answers.find( a => a.questionID.toString() === this.props.match.params.questionId );
     const currentQstIndex = questions.indexOf(currentQuestion);
     console.log('currentQuestion ', currentQuestion);
+    console.log('currentAnswer ', currentAnswer);
 
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
@@ -52,6 +54,8 @@ class Questions extends React.Component {
             type="text"
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            value={currentAnswer}
+            onChange={this.onChange}
           />
         );
 
@@ -61,6 +65,8 @@ class Questions extends React.Component {
             type="number"
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            value={currentAnswer}
+            onChange={this.onChange}
             min="1"
             max="99"
           />
@@ -79,9 +85,9 @@ class Questions extends React.Component {
           <InputRadio
             name={currentQuestion.questionID}
             label={currentQuestion.title}
-            questionID={currentQuestion.questionID}
             options={currentQuestion.values}
             onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
 
