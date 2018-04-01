@@ -32,7 +32,7 @@ class Questions extends React.Component {
 
         <div className="form-footer">
           <Link to='/' className="btn btn-secondary">Home</Link>
-          <Link to='/questions/1' className="btn btn-parimary">Next</Link>
+          <Link to={`/questions/${nextQstId}`} className="btn btn-parimary">Next</Link>
         </div>
       </section>
     );
