@@ -5,6 +5,7 @@ import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
 import SelectInput from '../common/SelectInput';
 import TextAreaInput from '../common/TextAreaInput';
+import InputCheckbox from '../common/InputCheckbox';
 
 class Questions extends React.Component {
   render() {
@@ -12,7 +13,6 @@ class Questions extends React.Component {
 
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
     const currentQstIndex = questions.indexOf(currentQuestion);
-
     console.log('currentQuestion ', currentQuestion);
 
     let prevQstId, nextQstId;
@@ -50,6 +50,15 @@ class Questions extends React.Component {
             name={currentQuestion.questionID}
             label={currentQuestion.title}
             questionID={currentQuestion.questionID}
+            options={currentQuestion.values}
+          />
+        );
+
+      case 'checkbox':
+        return (
+          <InputCheckbox
+            name="common-use"
+            label={currentQuestion.title}
             options={currentQuestion.values}
           />
         );

@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 
-const InputRadio = ({name, label, options}) => {
+const InputCheckbox = ({name, label, options,}) => {
   return (
     <div className="form-wrapper">
       <h2>{label}</h2>
-      {options.map((option) => {
+
+      {options.map(option => {
         return (
           <div className="form-wrapper-label" key={option.id}>
             <label>
               <input
-                type="radio"
-                className="form-wrapper-radio"
+                type="checkbox"
+                className="form-wrapper-check"
                 name={name}
                 value={option.id}
-              /> {option.value}
+              />{' '}
+              {option.value}
             </label>
           </div>
         );
@@ -22,4 +24,4 @@ const InputRadio = ({name, label, options}) => {
   );
 };
 
-export default InputRadio;
+export default InputCheckbox;

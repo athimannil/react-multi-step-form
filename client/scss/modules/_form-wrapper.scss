@@ -2,9 +2,10 @@
 
   &-wrapper {
 
-    &-label {
-      display: block;
+    &-radio,
+    &-check {
       margin-bottom: 0.75rem;
+      font-size: 1rem;
     }
 
     &-text,
