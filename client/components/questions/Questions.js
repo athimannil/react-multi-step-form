@@ -20,17 +20,28 @@ class Questions extends React.Component {
       nextQstId = questions[currentQstIndex+1].questionID;
     }
 
+    const QuestionForm = currentQuestion => {
+      switch (currentQuestion.type) {
+
+      case 'radio':
+        return (
+          <InputRadio
+            name="gender"
+            label={currentQuestion.title}
+            questionID={currentQuestion.questionID}
+            options={currentQuestion.values}
+          />
+        );
+      }
+    };
+
     return (
       <section className="container">
         {
           currentQuestion ?
             <form className="form">
-              <InputRadio
-                name="gender"
-                label={currentQuestion.title}
-                questionID={currentQuestion.questionID}
-                options={currentQuestion.values}
-              />
+              {QuestionForm(currentQuestion)}
+
             </form> :
             <div>
               <h1>Start your survey</h1>
