@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
 
 class Questions extends React.Component {
@@ -23,6 +24,15 @@ class Questions extends React.Component {
 
     const QuestionForm = currentQuestion => {
       switch (currentQuestion.type) {
+
+      case 'text':
+        return (
+          <TextInput
+            type="text"
+            name={currentQuestion.questionID}
+            label={currentQuestion.title}
+          />
+        );
 
       case 'radio':
         return (
