@@ -11,7 +11,18 @@ class Summary extends React.Component {
     console.log(this.props);
     const { questions, answers } = this.props;
     console.log(questions, answers);
-    const lastQstId= questions[questions.length-1].questionID;
+    const lastQstId = questions[questions.length-1].questionID;
+    const results = answers.map(answer => {
+      const question = questions.find(q => q.questionID == answer.questionID);
+      console.log(question);
+      let aValues =
+        answer.answerValues instanceof Array
+          ? answer.answerValues
+          : [answer.answerValues];
+
+      return aValues;
+    });
+console.log(results);
     return(
       <section className="container">
         <h1>Summary</h1>
