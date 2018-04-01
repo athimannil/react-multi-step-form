@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import TextInput from '../common/TextInput';
 import InputRadio from '../common/InputRadio';
 import SelectInput from '../common/SelectInput';
+import TextAreaInput from '../common/TextAreaInput';
 
 class Questions extends React.Component {
   render() {
@@ -30,6 +31,14 @@ class Questions extends React.Component {
         return (
           <TextInput
             type="text"
+            name={currentQuestion.questionID}
+            label={currentQuestion.title}
+          />
+        );
+
+      case 'comment':
+        return(
+          <TextAreaInput
             name={currentQuestion.questionID}
             label={currentQuestion.title}
           />
