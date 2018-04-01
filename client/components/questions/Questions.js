@@ -17,14 +17,15 @@ class Questions extends React.Component {
   }
 
   onChange(event) {
-    const question = event.target.name;
-    const result = event.target.value;
-    const newAnswer = {
-      'questionID': question,
-      'answerValues': result
-    };
-console.log(newAnswer);
-    this.props.updateAnswer(newAnswer);
+    console.log(event);
+//     const question = event.target.name;
+//     const result = event.target.value;
+//     const newAnswer = {
+//       'questionID': question,
+//       'answerValues': result
+//     };
+// console.log(newAnswer);
+//     this.props.updateAnswer(newAnswer);
   }
 
   render() {
