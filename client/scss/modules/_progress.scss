@@ -3,8 +3,6 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  // background-color: $brand-color;
-  // background-color: $light-grey;
 }
 
 %remain-steps {
@@ -43,11 +41,9 @@
     &::before {
       content: '\2713';
       @extend %common-law;
-      height: 2.25rem;
-      width: 2.25rem;
-      line-height: 2.25rem;
+      @include circle(2.25rem);
+      background-color: $white;
       border: 2px solid $brand-color;
-      border-radius: 50%;
     }
 
     &::after {
@@ -71,11 +67,9 @@
 
     &.is-active {
       @extend %remain-steps;
-      &::before {
-
-      }
 
        ~ li {
+         font-weight: 400;
          @extend %remain-steps;
 
          &::before {
