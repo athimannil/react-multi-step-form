@@ -107,6 +107,8 @@ console.log(newAnswer);
             label={currentQuestion.title}
             options={currentQuestion.values}
             defaultOption="Choose avarage sleep"
+            onChange={this.onChange}
+            checked={currentAnswer}
           />
         );
       }

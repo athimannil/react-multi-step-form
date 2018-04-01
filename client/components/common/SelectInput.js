@@ -1,11 +1,13 @@
 import React from 'react';
 
-const SelectInput = ({name, label, options, defaultOption}) => {
+const SelectInput = ({name, label, options, defaultOption, onChange, checked = {} }) => {
   return (
     <div className="form-wrapper">
       <h2>{label}</h2>
       <select
         name={name}
+        value={checked.answerValues}
+        onChange={onChange}
         className="form-wrapper-select"
       >
         <option value="">{defaultOption}</option>
