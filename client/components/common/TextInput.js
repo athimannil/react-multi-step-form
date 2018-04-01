@@ -6,7 +6,7 @@ const TextInput = ({type, name, label, placeholder, onChange, value={} }) => {
       <h2>{label}</h2>
       <input
         type={type}
-        className="form-wrapper-text"
+        className="form-wrapper-input form-wrapper-text"
         name={name}
         placeholder={placeholder}
         value={value.answerValues || ''}

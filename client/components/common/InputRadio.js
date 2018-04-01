@@ -10,7 +10,7 @@ const InputRadio = ({name, label, options, onChange, checked = {}}) => {
             <label>
               <input
                 type="radio"
-                className="form-wrapper-radio"
+                className="form-wrapper-input form-wrapper-radio"
                 name={name}
                 value={option.id}
                 checked={option.id == checked.answerValues}

@@ -8,7 +8,7 @@ const SelectInput = ({name, label, options, defaultOption, onChange, checked = {
         name={name}
         value={checked.answerValues}
         onChange={onChange}
-        className="form-wrapper-select"
+        className="form-wrapper-input form-wrapper-select"
       >
         <option value="">{defaultOption}</option>
         {options.map((option) => {
