@@ -1,11 +1,11 @@
 import React from 'react';
 
-const TextInput = ({name, label, placeholder}) => {
+const TextInput = ({type, name, label, placeholder}) => {
   return (
     <div className="form-wrapper">
       <h2>{label}</h2>
       <input
-        type="text"
+        type={type}
         className="form-wrapper-text"
         name={name}
         placeholder={placeholder}

@@ -36,6 +36,17 @@ class Questions extends React.Component {
           />
         );
 
+      case 'number':
+        return (
+          <TextInput
+            type="number"
+            name={currentQuestion.questionID}
+            label={currentQuestion.title}
+            min="1"
+            max="99"
+          />
+        );
+
       case 'comment':
         return(
           <TextAreaInput
