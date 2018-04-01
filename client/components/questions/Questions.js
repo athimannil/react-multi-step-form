@@ -24,8 +24,8 @@ class Questions extends React.Component {
             <div>
               <h1>Start your survey</h1>
               <div className="form-footer">
-                <Link to='/'>Home</Link>
-                <Link to='/questions/1'>Start</Link>
+                <Link to='/' className="btn btn-secondary">Home</Link>
+                <Link to='/questions/1' className="btn btn-parimary">Start</Link>
               </div>
             </div>
         }
