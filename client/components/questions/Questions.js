@@ -121,10 +121,13 @@ class Questions extends React.Component {
 
     return (
       <section className="container">
-        <Progress
-          currentIndex={currentQstIndex}
-          length={questions.length}
-        />
+        {
+          currentQstIndex >= 0 &&
+          <Progress
+            currentIndex={currentQstIndex}
+            length={questions.length}
+          />
+        }
 
         {
           currentQuestion ?
@@ -148,7 +151,7 @@ class Questions extends React.Component {
 
           <Link
             to={nextQstId ? `/questions/${nextQstId}` : '/summary'}
-            className={`btn btn-parimary ${currentAnswer && currentAnswer.answerValues.length ? '' : 'disabled'}`}
+            className={`btn btn-parimary ${(currentAnswer && currentAnswer.answerValues.length) || (currentQstIndex < 0) ? '' : 'disabled'}`}
           >{nextQstId ? 'Next' : 'Summary'}</Link>
         </div>
       </section>
