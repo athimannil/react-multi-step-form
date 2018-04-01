@@ -121,7 +121,10 @@ class Questions extends React.Component {
 
     return (
       <section className="container">
-        <Progress length={questions.length} />
+        <Progress
+          currentIndex={currentQstIndex}
+          length={questions.length}
+        />
 
         {
           currentQuestion ?
