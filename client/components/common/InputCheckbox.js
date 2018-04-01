@@ -39,9 +39,6 @@ class InputCheckbox extends React.Component {
 
         {options.map(option => {
           let tick = this.answerValues.find(answer => answer == option.id);
-// console.log(answerValues);
-console.log(this.props.checked);
-console.log(tick);
           return (
             <div className="form-wrapper-label" key={option.id}>
               <label>

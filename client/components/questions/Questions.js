@@ -17,7 +17,6 @@ class Questions extends React.Component {
   }
 
   onChange(event) {
-    console.log(event);
     if (Array.isArray(event.answerValues)) {
       this.props.updateAnswer(event);
     } else {
@@ -27,7 +26,6 @@ class Questions extends React.Component {
         'questionID': question,
         'answerValues': result
       };
-      console.log(newAnswer);
       this.props.updateAnswer(newAnswer);
     }
   }
@@ -38,8 +36,6 @@ class Questions extends React.Component {
     const currentQuestion = questions.find(q => q.questionID ==  this.props.match.params.questionId);
     const currentAnswer = answers.find( a => a.questionID.toString() === this.props.match.params.questionId );
     const currentQstIndex = questions.indexOf(currentQuestion);
-    console.log('currentQuestion ', currentQuestion);
-    console.log('currentAnswer ', currentAnswer);
 
     let prevQstId, nextQstId;
     if(questions[currentQstIndex-1]){
