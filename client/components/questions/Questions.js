@@ -142,7 +142,7 @@ class Questions extends React.Component {
 
           <Link
             to={nextQstId ? `/questions/${nextQstId}` : '/summary'}
-            className="btn btn-parimary"
+            className={`btn btn-parimary ${currentAnswer && currentAnswer.answerValues.length ? '' : 'disabled'}`}
           >{nextQstId ? 'Next' : 'Summary'}</Link>
         </div>
       </section>
