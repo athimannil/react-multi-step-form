@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadQuestions } from './../actions/questionAction';
 
@@ -15,13 +15,14 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { questions } = this.props;
-    console.log(questions);
+
     return (
       <main className="main">
         <Switch>
-          <Route exact path='/' component={Questions}/>
+          <Route exact path='/' render={() => ( <Redirect to='/questions/'/>)} />
+          <Route path='/questions/:questionId*'
+            render={ (props) => <Questions questions={questions} {...props} />} />
         </Switch>
       </main>
     );

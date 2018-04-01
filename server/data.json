@@ -11,7 +11,7 @@
     },
     {
       "questionID": 2,
-      "type": "text",
+      "type": "number",
       "title": "Choose your age ?",
       "values": []
     },

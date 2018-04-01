@@ -8,8 +8,31 @@
   background: $white;
   flex-basis: 100%;
   max-width: $screen-md;
-  padding: 1rem;
+  padding: 1rem 2rem;
   margin-right: auto;
   margin-left: auto;
   border-radius: 0.25rem;
+}
+
+.btn {
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.25rem;
+  color: $white;
+  transition: all 0.15s ease-in-out;
+
+  &-parimary {
+    background-color: $primary-color;
+
+    &:hover{
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary-color;
+
+    &:hover{
+      background-color: darken($secondary-color, 10%);
+    }
+  }
 }
