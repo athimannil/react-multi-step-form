@@ -77,6 +77,8 @@ console.log(newAnswer);
           <TextAreaInput
             name={currentQuestion.questionID}
             label={currentQuestion.title}
+            onChange={this.onChange}
+            value={currentAnswer}
           />
         );
 
