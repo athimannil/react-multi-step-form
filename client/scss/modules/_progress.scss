@@ -11,7 +11,6 @@
 
   &::before {
     content: counter(stepNum);
-    background-color: $light-grey;
   }
 
   &::after {
@@ -73,6 +72,7 @@
          @extend %remain-steps;
 
          &::before {
+           background-color: $light-grey;
            border-color: $light-grey;
          }
        }
