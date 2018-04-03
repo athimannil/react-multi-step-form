@@ -7,11 +7,21 @@
 .container {
   background: $white;
   flex-basis: 100%;
-  max-width: $screen-md;
+  margin-right: 1rem;
+  margin-left: 1rem;
   padding: 1rem 2rem;
-  margin-right: auto;
-  margin-left: auto;
   border-radius: 0.25rem;
+
+  @media screen and (min-width: $screen-md) {
+    max-width: $screen-md;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  // $screen-sm: 36rem;
+  // $screen-md: 48rem;
+  // $screen-lg: 62rem;
+  // $screen-xl: 75rem;
 }
 
 .btn {

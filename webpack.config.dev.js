@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 export default {
+  mode: 'development',
   entry: [
     'webpack/hot/only-dev-server',
     'webpack-hot-middleware/client?reload=true',
