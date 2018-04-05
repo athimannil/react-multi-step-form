@@ -17,7 +17,6 @@ class App extends React.Component {
 
   render() {
     const { questions, answers } = this.props;
-    // console.log(questions, answers);
 
     return (
       <main className="main">
